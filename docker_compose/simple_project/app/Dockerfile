@@ -8,10 +8,12 @@ ENV UWSGI_PROCESSES 1
 ENV UWSGI_THREADS 16
 ENV UWSGI_HARAKIRI 240
 ENV DJANGO_SETTINGS_MODULE 'example.settings'
+ENV ENV_PATH example/.env
 
 COPY run_uwsgi.sh run_uwsgi.sh
 COPY requirements.txt requirements.txt
 COPY uwsgi/uwsgi.ini uwsgi.ini
+
 
 RUN  mkdir -p /var/www/static/ \
      && mkdir -p /var/www/media/ \
